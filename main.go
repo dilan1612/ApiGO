@@ -26,6 +26,13 @@ func main() {
 	r.HandleFunc("/users", routes.PostUsersHandler).Methods("POST")
 	r.HandleFunc("/users/{id}", routes.DeleteUsersHandler).Methods("DELETE")
 
+	// Car routes
+
+	r.HandleFunc("/cars", routes.GetCarsHandler).Methods("GET")
+	r.HandleFunc("/cars", routes.CreateCarsHandler).Methods("POST")
+	r.HandleFunc("/cars/{id}", routes.GetCarHandler).Methods("GET")
+	r.HandleFunc("/cars/{id}", routes.DeleteCarsHandler).Methods("DELETE")
+
 	http.ListenAndServe(":3000", r)
 
 }
